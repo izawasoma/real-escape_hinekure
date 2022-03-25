@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var nazoRouter = require('./routes/nazo');
-console.log(nazoRouter);
+var ponpon_seRouter = require('./routes/ponpon_se');
 
 var app = express();
 
@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', nazoRouter);
+app.use('/', ponpon_seRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
