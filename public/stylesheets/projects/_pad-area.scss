@@ -14,12 +14,12 @@
         cursor: pointer;
         &--nomal{
             background-color: #F3F3F3;
+            &:hover{
+                background-color: #CFCFCF;
+            }
         }
         &--active{
             background-color: #111111;
-        }
-        &:hover{
-            background-color: #CFCFCF;
         }
     }
     &__icon{
