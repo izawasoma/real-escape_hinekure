@@ -1,0 +1,22 @@
+@import "../variables";
+.p_se_nav{
+    &__logo-wrapper{
+        width: 240px;
+        margin: 0 auto;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 3rem 0 1rem 0;
+        border-bottom: #E9E9E9 1px solid;
+    }
+    &__logo{
+        font-size: 24px;
+        font-weight: 900;
+    }
+    &__version{
+        font-size: 14px;
+        color: #797979;
+        font-weight: 100;
+    }
+}

@@ -20,3 +20,29 @@ body{
     position: fixed;
     bottom: 0;
 }
+.l_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.l_contents{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 300px 1fr;
+    grid-row: 1fr;
+    &__nav{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        background-color: #F8F7F7;
+    }
+    &__main{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+}
+.l_inlineBlock_center{
+    text-align: center;
+}
