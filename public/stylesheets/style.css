@@ -491,12 +491,20 @@ body {
   bottom: 0;
 }
 
-.l_modal {
+.l_modal, .l_modal--hide {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.l_modal--hide {
+  display: none;
 }
 
 .l_contents {
@@ -789,12 +797,12 @@ body {
   background-color: #F3F3F3;
 }
 
-.p_pad-area__btn--active {
-  background-color: #111111;
+.p_pad-area__btn--nomal:hover {
+  background-color: #CFCFCF;
 }
 
-.p_pad-area__btn:hover {
-  background-color: #CFCFCF;
+.p_pad-area__btn--active {
+  background-color: #111111;
 }
 
 .p_pad-area__icon {
