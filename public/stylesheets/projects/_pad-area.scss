@@ -1,0 +1,75 @@
+@import "../variables";
+.p_pad-area{
+    display: grid;
+    gap: 27px;
+    grid-template-columns: repeat(auto-fit, 136px);
+    width: 80%;
+    margin: 87px auto 0 auto;
+    &__btn{
+        width: 136px;
+        height: 136px;
+        border-radius: 9px;
+        position: relative;
+        box-sizing: border-box;
+        cursor: pointer;
+        &--nomal{
+            background-color: #F3F3F3;
+            &:hover{
+                background-color: #CFCFCF;
+            }
+        }
+        &--active{
+            background-color: #111111;
+        }
+    }
+    &__icon{
+        color: #797979;
+        font-size: 18px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        &--nomal{
+            color: #797979;
+        }
+        &--active{
+            color: #ffffff;
+        }
+    }
+    &__title{
+        font-size: 14px;
+        color: #797979;
+        font-weight: 100;
+        padding: 0 10px;
+        position: absolute;
+        top: 35px;
+        &--nomal{
+            color: #797979;
+        }
+        &--active{
+            color: #ffffff;
+        }
+    }
+    &__play{
+        font-size: 18px;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        &--nomal{
+            display: none!important;
+        }
+        &--active{
+            color: #ffffff;
+        }
+    }
+    &__time{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        &--nomal{
+            color: #797979;
+        }
+        &--active{
+            color: #ffffff;
+        }
+    }
+}

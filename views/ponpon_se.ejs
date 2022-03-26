@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        PonPon.SE
+    </title>
+    <meta content="タイトル" name="title">
+    <meta content="ディスクリプション" name="description">
+    <meta content="キーワード" name="keywords">
+    <link href="" rel="stylesheet">
+    <!-- フォントの初期設定 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+        }
+    </style>
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- font-awesome -->
+	<script src="https://kit.fontawesome.com/03ebcee952.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <h1 class="dn">ポン出しアプリ「PonPon.SE」</h1>
+        <article class="p_modal-soundAttention l_modal" id="enter_modal">
+            <div class="p_modal-soundAttention__wrapper">
+                <h2 class="p_modal-soundAttention__h2 mb40">Welcome to "<span class="p_modal-soundAttention__span">PonPon.SE</span>"</h2>
+                <div class="p_modal-soundAttention__contents-wrapper mb20">
+                    <div class="p_modal-soundAttention__iconWrapper"><i class="fas fa-volume-up p_modal-soundAttention__icon"></i></div>
+                    <p>このサイトでは音声が流れます。<br>スピーカーの音量にご注意ください。</p>
+                </div>
+                <div class="p_modal-soundAttention__btn-wrapper">
+                    <div class="c_btn_side_round c_btn_side_round--black l_inlineBlock-center" id="enter">ENTER</div>
+                </div>
+            </div>
+        </article>
+        <article id="main" class="l_contents">
+            <section class="l_contents__nav">
+                <div class="p_se_nav__logo-wrapper">
+                    <h2 class="p_se_nav__logo">PonPon.SE</h2>
+                    <p class="p_se_nav__version">ver1.0</p>
+                </div>
+            </section>
+            <section class="l_contents__main">
+                <ul class="p_pad-area">
+                    <li class="p_pad-area__btn--nomal p_pad-area__btn">
+                        <i class="fas fa-music p_pad-area__icon--nomal p_pad-area__icon"></i>
+                        <p class="p_pad-area__title--nomal p_pad-area__title">アジト</p>
+                        <i class="fas fa-play p_pad-area__play--nomal p_pad-area__play"></i>
+                        <p class="p_pad-area__time--nomal p_pad-area__time"><span></span><span class="sound_duration"></span></p>
+                    </li>
+                    <li class="p_pad-area__btn--active p_pad-area__btn">
+                        <i class="fas fa-music p_pad-area__icon p_pad-area__icon--active"></i>
+                        <p class="p_pad-area__title p_pad-area__title--active">ハンター試験からの脱出</p>
+                        <i class="fas fa-play p_pad-area__play p_pad-area__play--active"></i>
+                        <p class="p_pad-area__time p_pad-area__time--active"><span></span><span class="sound_duration"></span></p>
+                    </li>
+                    <li class="p_pad-area__btn--nomal p_pad-area__btn">
+                        <i class="fas fa-music p_pad-area__icon--nomal p_pad-area__icon"></i>
+                        <p class="p_pad-area__title--nomal p_pad-area__title">KOTOKOTO</p>
+                        <i class="fas fa-play p_pad-area__play--nomal p_pad-area__play"></i>
+                        <p class="p_pad-area__time--nomal p_pad-area__time"><span></span><span class="sound_duration"></span></p>
+                    </li>
+            </section>
+        </article>
+        <ul>
+            <li><audio src="./audio/bgm/azito.mp3" class="ponpon_audio"></audio></li>
+            <li><audio src="./audio/bgm/escape from hunter test.mp3" class="ponpon_audio"></audio></li>
+            <li><audio src="./audio/bgm/kotokoto.mp3" class="ponpon_audio"></audio></li>
+        </ul>
+    </main> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script src="/javascripts/ponpon_se.js"></script>
+</body>
+
+</html>
