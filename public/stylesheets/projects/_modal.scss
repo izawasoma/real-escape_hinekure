@@ -46,7 +46,25 @@
 }
 .p_modal--info{
     @extend .p_modal;
+    &__content{
+        background-color: #fff;
+        width: 80vw;
+        height: 80vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 1.1rem
+    }
 }
 .p_modal--correct{
     @extend .p_modal;
+    background-image: url("/img/material/0176_line.jpg");
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    gap: 20px;
+    img{
+        width: 90%;
+    }
 }

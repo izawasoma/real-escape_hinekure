@@ -18,17 +18,15 @@
     font-size: 1.2rem;
     background-color: #d1ffd9;
     transition: opacity 0.3s;
-    &:hover{
-        opacity: 0.8;
+    &.--active{
+
+        background-color: $main_color;
+        color: #fff;
     }
-}
-.p_nav__item--active{
-    @extend .p_nav__item;
-    background-color: $main_color;
-    color: #fff;
-}
-.p_nav__item--disabled{
-    @extend .p_nav__item;
-    background-color: #7c7c7c;
-    color: #000;
+    &.--disabled{
+
+        background-color: #7c7c7c;
+        color: #000;
+        pointer-events: none;
+    }
 }
