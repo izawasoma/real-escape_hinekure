@@ -28,6 +28,24 @@
     font-size: 40px !important;
     font-weight: 900;
 }
+.p_modal--star{
+    @extend .p_modal;
+    &__open{
+        padding: 8px 24px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: $main_color;
+        color: #ffffff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+.p_modal--star__close{
+    @extend .p_modal__close;
+}
 @keyframes fadein {
     0%{
         opacity: 0;

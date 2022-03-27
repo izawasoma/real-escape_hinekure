@@ -82,6 +82,9 @@
 
         }
     }
+    &.correct{
+        pointer-events: none;
+    }
 }
 .p_content__row{
     width: 100%;
@@ -90,7 +93,6 @@
         width: 100%;
         border: 1px solid #000;
         &.selected{
-            background-color: #d1ffd9;
             background-color: $main_color;
         }
     }
