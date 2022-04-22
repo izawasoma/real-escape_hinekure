@@ -42,7 +42,6 @@ let state = {
 }
 //進展に応じた初期値を設定
 for(let i = 0; i <= state.progress; i++){
-    console.log(i);
     $('.p_nav__item').eq(i).removeClass("--disabled");
 }
 if(state.progress == 7){
@@ -163,6 +162,8 @@ function q4(){
     }
     $('.p_content__col').height($('.p_content__col').width());
     let que = [];
+    //マス目にクリックイベントをあてる
+    //クリックごとに配列に追加し８クリックごとに比較
     $('.p_content__col').on("click",(e)=>{
         //console.log($('.p_content__col').index(e.currentTarget));
         $(e.currentTarget).addClass("selected");
@@ -228,3 +229,50 @@ $('.p_modal--info').click((e)=>{
 $(".p_modal--info__content").click((e)=>{
     e.stopPropagation();
 })
+
+//title
+let start = 0;
+let end = 0;
+let started = false;
+const width = $('.p_modal--title').width();
+console.log(width);
+document.querySelector('.p_modal--title').addEventListener("touchstart",(e)=>{
+    e.preventDefault();
+    start = e.touches[0].pageX;
+});
+document.querySelector('.p_modal--title').addEventListener("touchmove",(e)=>{
+    e.preventDefault();
+    end = e.changedTouches[0].pageX;
+    $('.p_modal--title').css("left",`-${start - end}px`)
+});
+document.querySelector('.p_modal--title').addEventListener("touchend",(e)=>{
+    if(started == false){
+        if(start > end + (width / 2)){
+            $('.p_modal--title__attention_list').eq(1).addClass('red')
+        }
+        $('.p_modal--title').css("left",`0px`);
+    }else{
+        if(start > end + (width / 4)){
+            $('.p_modal--title').addClass("hidden");
+        }else{
+            $('.p_modal--title').css("left",`0px`);
+        }
+    }
+});
+
+
+///////// socket events /////////
+let socket = io();
+
+$(function(){
+    //受験者として接続
+    socket.emit('examinee_connect');
+    socket.on('examinee_connect', () => {
+        console.log('ID: ' + socket.id);
+    });
+    //試験開始
+    socket.on("exam_start",()=>{
+        $('.p_modal--title').addClass('started');
+        started = true;
+    })
+});
