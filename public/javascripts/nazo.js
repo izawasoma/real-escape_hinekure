@@ -59,6 +59,7 @@ $('#answer_button').on("click",()=>{
 //ナビおよび問題の切り替え
 $('.p_nav__item').on("click",(e)=>{
     const q_num = e.target.textContent;
+    console.log(q_num);
     nav(q_num);
 })
 
@@ -84,12 +85,15 @@ function check_ans(q_num){
 }
 //正解時の処理
 function correct(q_num){
+    console.log(q_num);
     correct_modal();
     $('.p_content__info').removeClass("--disabled");
     $('.p_modal--info').addClass("shown");
     $('.p_content__incorrect').addClass('hidden');
     state.progress = q_num;
-    $('.p_nav__item').eq(q_num).removeClass("--disabled");
+    if(q_num != 1 || stage2 == "ok"){
+        $('.p_nav__item').eq(q_num).removeClass("--disabled");
+    }
     $('.p_modal--info__content').text(ans_list["q" + q_num].info);
 }
 function incorrect(){
@@ -121,6 +125,7 @@ function nav(q_num){
         $('.p_content__nazo_image').attr("src",`img/question/${q_num}.png`);
     }
     $('.p_content__question_text').text(ans_list["q" + q_num].question);
+    $('.p_modal--info__content').text(ans_list["q" + q_num].info);
     $('.p_nav__item.--active').removeClass("--active");
     $('.p_nav__item').eq(q_num - 1).addClass("--active");
     $('.p_content__incorrect').addClass('hidden');
@@ -275,4 +280,13 @@ $(function(){
         $('.p_modal--title').addClass('started');
         started = true;
     })
+    //
+    socket.on("stage1",function(){
+        $(".p_modal--title").eq(0).fadeOut(500);
+    });
+    socket.on("stage2",function(){
+        $('.p_nav__item').eq(1).removeClass("--disabled");
+        //state.progress = 1;
+    });
 });
+

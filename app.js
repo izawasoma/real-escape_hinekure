@@ -8,8 +8,13 @@ var indexRouter = require('./routes/index');
 var nazoRouter = require('./routes/nazo');
 var adminRouter = require('./routes/admin');
 var ponpon_seRouter = require('./routes/ponpon_se');
+var flg_changeRouter = require('./routes/flg_change');
 
 var app = express();
+
+//画面遷移許可の変数
+app.set('start_to_1st_flg', 0);
+app.set('1st_to_2nd_flg', 0);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/nazo', nazoRouter);
 app.use('/ponpon_se', ponpon_seRouter);
 app.use('/admin', adminRouter);
+app.use('/flg_change', flg_changeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -30,6 +30,13 @@ function socketIO(server) {
         socket.on("exam_start",()=>{
             sio.emit('exam_start');
         })
+        ////////////////試験開始フラグ///////////////////
+        socket.on("stage1",function(){
+            sio.emit("stage1");
+        });
+        socket.on("stage2",function(){
+            sio.emit("stage2");
+        });
     });
 };
 module.exports = socketIO;

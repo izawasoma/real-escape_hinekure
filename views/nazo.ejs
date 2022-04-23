@@ -61,7 +61,7 @@
         <img class="p_modal--correct__image" src="img/material/correct.svg">
     </div>
 
-    <div class="p_modal--title">
+    <div class="p_modal--title" style="<%= flgs[0] %>">
         <img class="p_modal--title__image" src="img/material/logo.svg">
         <div class="p_modal--title__attention">
             <div class="p_modal--title__attention_title">注意事項</div>
@@ -73,6 +73,9 @@
         <div class="p_modal--title__start"><span class="material-icons">swipe_left</span>試験を開始してください</div>
     </div>
 
+    <script>
+        let stage2 = "<%= flgs[1] %>";
+    </script>
     <script src="javascripts/jquery-2.0.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
     <script src="javascripts/nazo.js"></script>
