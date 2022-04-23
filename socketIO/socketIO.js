@@ -12,6 +12,24 @@ function socketIO(server) {
         socket.on("disconnect", function() {
             console.log('user disconnected');
         });
+        ////////////////admin///////////////////
+        //管理の接続を確認
+        let admin_id = "";
+        socket.on('admin_connect', ()=>{
+            admin_id = socket.id;
+            console.log(admin_id);
+            sio.to(admin_id).emit('admin_connect');
+        });
+        //受験者の接続を確認
+        socket.on('examinee_connect', () => {
+            console.log(admin_id);
+            sio.emit('examinee_connect',socket.id);
+            //sio.to(admin_id).emit('examinee_connect',socket.id);
+        });
+        //試験開始
+        socket.on("exam_start",()=>{
+            sio.emit('exam_start');
+        })
     });
 };
 module.exports = socketIO;

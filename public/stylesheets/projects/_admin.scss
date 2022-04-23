@@ -1,0 +1,55 @@
+$orange : #F5D221;
+$orange_hov : #5df5218e;
+$orange_s : #f5ab219c;
+$black : #000000;
+$red : #F72500;
+.p_admin{
+    background: $black;
+    min-height: 100vh;
+    &__header{
+        display: flex;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    &__start_button{
+        margin-top: 10px;
+        font-size: 2rem;
+        padding: 8px 24px;
+        transition: 0.2s;
+        border: 1px solid $orange;
+        cursor: pointer;
+        border-radius: 2px;
+        box-sizing: border-box;
+        &:hover{
+            border: 2px solid $orange;
+        }
+        &:active{
+            box-shadow:  2px 2px 8px 8px $orange,-2px -2px 8px 8px $orange;
+        }
+    }
+    &--spacer{
+        height: 100px;
+    }
+}
+.eva{
+    font-family: serif;
+    font-weight: 900;
+    display: inline-block;
+    transform: scale(0.7, 1);
+}
+.orange{
+    color: $orange;
+    text-shadow: 1px 1px 4px $orange_s, -1px -1px 4px $orange_s;
+}
+.dseg{
+    font-family: 'dseg';
+    font-weight: 900;
+    display: inline-block;
+    transform: scale(0.7, 1);
+}
+@font-face {
+    font-family: 'dseg';
+    src: url('/fonts/DSEG7Modern-Bold.ttf');
+}
