@@ -101,7 +101,7 @@ function correct(q_num){
     if(q_num != 1 || stage2 == "ok"){
         $('.p_nav__item').eq(q_num).removeClass("--disabled");
     }
-    $('.p_modal--info__content').text(ans_list["q" + q_num].info);
+    $('.p_modal--info__content').html(ans_list["q" + q_num].info);
 }
 function incorrect(){
     $('.p_content__incorrect').removeClass('hidden');
