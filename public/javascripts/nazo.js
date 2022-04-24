@@ -45,7 +45,7 @@ const q4ans = [4,0,20,12,24,6,8,16];
 //ゲームの状況を保存する
 let state = {
     //どこまで正解したか
-    progress : 7
+    progress : 0
 }
 //進展に応じた初期値を設定
 for(let i = 0; i <= state.progress; i++){
