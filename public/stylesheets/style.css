@@ -996,6 +996,7 @@ html, body {
 
 .p_modal--info__content {
   background-color: #fff;
+  padding: 20px;
   width: 80vw;
   height: 80vw;
   display: -webkit-box;

@@ -1,4 +1,8 @@
 /////////////謎の答えなどの定数定義、および初期値を変数に格納////////////////
+function rand(max){
+    return  Math.ceil(Math.random() * max)
+}
+let student_id = rand(9) * 10000 + rand(999);
 const ans_list = {
     q1: {
         answer: "518",
@@ -8,7 +12,8 @@ const ans_list = {
     q2: {
         answer: "へるしー",
         question: "ひらがな4文字で答えなさい",
-        info: "課題主題は『注意力測定(追試)』",
+        info: `課題主題は<br>
+        『注意力測定(追試)』`,
     },
     q3: {
         question: "クラス記号を求めよ",
@@ -16,29 +21,31 @@ const ans_list = {
     },
     q4: {
         question: "点滅した順に押せ",
-        info: "科目記号は『NZ85』",
+        info: `科目記号は『NZ85』<br><br>
+        カウンターにこの画面を見せると、第5問を解くのに必要な紙が貰えます`,
     },
     q5: {
         answer: "かんしん",
         question: "ひらがな4文字で答えなさい",
-        info: "科目担当は『四ツ井 光』",
+        info: `科目担当は『四ツ井 光』<br><br>
+        カウンターにこの画面を見せると、第6問を解くのに必要な紙が貰えます`,
     },
     q6: {
-        answer: "なかま",
+        answer: "仲間",
         question: "ひらがな3文字で答えなさい",
         info: "担任は『三須 大井』",
     },
     q7: {
         answer: "てんさい",
         question: "ひらがなで答えなさい",
-        info: "学籍番号は『06025』",
+        info: `学籍番号は『${student_id}』`,
     }
 }
 const q4ans = [4,0,20,12,24,6,8,16];
 //ゲームの状況を保存する
 let state = {
     //どこまで正解したか
-    progress : 0
+    progress : 7
 }
 //進展に応じた初期値を設定
 for(let i = 0; i <= state.progress; i++){
@@ -125,7 +132,7 @@ function nav(q_num){
         $('.p_content__nazo_image').attr("src",`img/question/${q_num}.png`);
     }
     $('.p_content__question_text').text(ans_list["q" + q_num].question);
-    $('.p_modal--info__content').text(ans_list["q" + q_num].info);
+    $('.p_modal--info__content').html(ans_list["q" + q_num].info);
     $('.p_nav__item.--active').removeClass("--active");
     $('.p_nav__item').eq(q_num - 1).addClass("--active");
     $('.p_content__incorrect').addClass('hidden');

@@ -66,13 +66,14 @@
     @extend .p_modal;
     &__content{
         background-color: #fff;
+        padding: 20px;
         width: 80vw;
         height: 80vw;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 600;
-        font-size: 1.1rem
+        font-size: 1.1rem;
     }
 }
 .p_modal--correct{
