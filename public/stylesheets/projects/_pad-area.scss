@@ -72,4 +72,20 @@
             color: #ffffff;
         }
     }
+    &__stop-btn{
+        width: 86px;
+        height: 86px;
+        position: absolute;
+        background-color: green;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(21, 208, 21);
+        }
+    }
 }
