@@ -59,11 +59,11 @@
                         <i class="fas fa-play p_pad-area__play--nomal p_pad-area__play"></i>
                         <p class="p_pad-area__time--nomal p_pad-area__time"><span></span><span class="sound_duration"></span></p>
                     </li>
-                    <li class="p_pad-area__btn--active p_pad-area__btn">
-                        <i class="fas fa-music p_pad-area__icon p_pad-area__icon--active"></i>
-                        <p class="p_pad-area__title p_pad-area__title--active">ハンター試験からの脱出</p>
-                        <i class="fas fa-play p_pad-area__play p_pad-area__play--active"></i>
-                        <p class="p_pad-area__time p_pad-area__time--active"><span></span><span class="sound_duration"></span></p>
+                    <li class="p_pad-area__btn--nomal p_pad-area__btn">
+                        <i class="fas fa-music p_pad-area__icon--nomal p_pad-area__icon"></i>
+                        <p class="p_pad-area__title--nomal p_pad-area__title">ハンター試験からの脱出</p>
+                        <i class="fas fa-play p_pad-area__play--nomal p_pad-area__play"></i>
+                        <p class="p_pad-area__time--nomal p_pad-area__time"><span></span><span class="sound_duration"></span></p>
                     </li>
                     <li class="p_pad-area__btn--nomal p_pad-area__btn">
                         <i class="fas fa-music p_pad-area__icon--nomal p_pad-area__icon"></i>
@@ -71,12 +71,15 @@
                         <i class="fas fa-play p_pad-area__play--nomal p_pad-area__play"></i>
                         <p class="p_pad-area__time--nomal p_pad-area__time"><span></span><span class="sound_duration"></span></p>
                     </li>
+                    <div class="p_pad-area__stop-btn" id="stop_button">
+                        停止
+                    </div>
             </section>
         </article>
         <ul>
-            <li><audio src="./audio/bgm/azito.mp3" class="ponpon_audio"></audio></li>
-            <li><audio src="./audio/bgm/escape from hunter test.mp3" class="ponpon_audio"></audio></li>
-            <li><audio src="./audio/bgm/kotokoto.mp3" class="ponpon_audio"></audio></li>
+            <li><audio src="./audio/bgm/azito.mp3" class="ponpon_audio" loop></audio></li>
+            <li><audio src="./audio/bgm/escape from hunter test.mp3" class="ponpon_audio" loop></audio></li>
+            <li><audio src="./audio/bgm/kotokoto.mp3" class="ponpon_audio" loop></audio></li>
         </ul>
     </main> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>

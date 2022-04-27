@@ -31,7 +31,7 @@ const ans_list = {
         カウンターにこの画面を見せると、第6問を解くのに必要な紙が貰えます`,
     },
     q6: {
-        answer: "仲間",
+        answer: "なかま",
         question: "ひらがな3文字で答えなさい",
         info: "担任は『三須 大井』",
     },
@@ -75,7 +75,7 @@ $('.p_nav__item').on("click",(e)=>{
 function check_ans(q_num){
     //特殊問題
     if(q_num == 3){
-        if($('.p_content__input').eq(0).val() == "UL" && $('.p_content__input').eq(1).val() == "00L" && $('.p_content__input').eq(2).val() == "495"){
+        if($('.p_content__input').eq(0).val() == "AL" && $('.p_content__input').eq(1).val() == "00L" && $('.p_content__input').eq(2).val() == "495"){
             correct(q_num);
         }else{
             incorrect();
