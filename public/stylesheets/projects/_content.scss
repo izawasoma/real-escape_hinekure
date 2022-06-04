@@ -39,6 +39,12 @@
     width: 100%;
     border: 1px solid #000;
 }
+.p_content__nazo_title{
+    margin-bottom: -20px;
+}
+.p_content__nazo_title + .p_content__nazo_image{
+    border: none;
+}
 .p_content__form {
     grid-row: 3 / 4;
     display: flex;
