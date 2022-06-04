@@ -1,4 +1,5 @@
 /////////////cookie//////////////
+document.cookie = `cookie=yammy;`
 let cookie_str = document.cookie;
 let cookies = {};
 cookie_str = cookie_str.split(';');
