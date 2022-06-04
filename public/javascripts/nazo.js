@@ -1,11 +1,30 @@
+/////////////cookie//////////////
+let cookie_str = document.cookie;
+cookie_str = cookie_str.split(';');
+let cookies = {};
+cookie_str.forEach(function(c) {
+    const val = c.split('=');
+    cookies[val[0].trim()] = val[1].trim();
+})
+console.log(cookies);
+
 /////////////謎の答えなどの定数定義、および初期値を変数に格納////////////////
+console.log(document.cookie);
 function rand(max){
     return  Math.ceil(Math.random() * max)
 }
-let student_id = rand(9) * 10000 + rand(999);
+
+let student_id = 0;
+if(typeof cookies["student_id"] == 'undefined'){
+    student_id = rand(9) * 10000 + rand(999);
+    document.cookie = `student_id=${student_id};`
+}else{
+    student_id = cookies["student_id"];
+}
+
 const ans_list = {
     q1: {
-        answer: "518",
+        answer: "838",
         question: "数字(半角)で答えなさい",
         info: "課題No.は『01』",
     },
@@ -16,23 +35,23 @@ const ans_list = {
         『注意力測定(追試)』`,
     },
     q3: {
-        question: "クラス記号を求めよ",
-        info: "クラス記号を書け",
+        answer: "かんしん",
+        question: "ひらがな4文字で答えなさい",
+        info: `科目担当は『四ツ井 光』<br><br>
+        手を挙げてこの画面をスタッフに見せなさい`,
     },
     q4: {
         question: "点滅した順に押せ",
         info: `科目記号は『NZ85』<br><br>
-        カウンターにこの画面を見せると、第5問を解くのに必要な紙が貰えます`,
+        手を挙げてこの画面をスタッフに見せなさい`,
     },
     q5: {
-        answer: "かんしん",
-        question: "ひらがな4文字で答えなさい",
-        info: `科目担当は『四ツ井 光』<br><br>
-        カウンターにこの画面を見せると、第6問を解くのに必要な紙が貰えます`,
+        question: "クラス記号を求めよ",
+        info: "クラス記号を書け",
     },
     q6: {
-        answer: "なかま",
-        question: "ひらがな3文字で答えなさい",
+        answer: "仲間",
+        question: "漢字で答えなさい",
         info: "担任は『三須 大井』",
     },
     q7: {
@@ -41,11 +60,19 @@ const ans_list = {
         info: `学籍番号は『${student_id}』`,
     }
 }
+const q5 = [
+    "AL",
+    "52H",
+    "208"
+]
 const q4ans = [4,0,20,12,24,6,8,16];
 //ゲームの状況を保存する
 let state = {
     //どこまで正解したか
     progress : 0
+}
+if(typeof cookies["progress"] != "undefined"){
+    state.progress = Number(cookies["progress"]);
 }
 //進展に応じた初期値を設定
 for(let i = 0; i <= state.progress; i++){
@@ -74,9 +101,10 @@ $('.p_nav__item').on("click",(e)=>{
 //正誤判定
 function check_ans(q_num){
     //特殊問題
-    if(q_num == 3){
-        if($('.p_content__input').eq(0).val() == "AL" && $('.p_content__input').eq(1).val() == "00L" && $('.p_content__input').eq(2).val() == "495"){
+    if(q_num == 5){
+        if($('.p_content__input').eq(0).val() == q5[0] && $('.p_content__input').eq(1).val() == q5[1] && $('.p_content__input').eq(2).val() == q5[2]){
             correct(q_num);
+           document.cookie = `progress=${q_num};`
         }else{
             incorrect();
         }
@@ -85,6 +113,7 @@ function check_ans(q_num){
         if(ans_list["q" + q_num].answer == input_ans){
             correct_modal();
             correct(q_num);
+            document.cookie = `progress=${q_num};`
         }else{
             incorrect();
         }
@@ -108,22 +137,31 @@ function incorrect(){
 }
 //ナビの切り替え
 function nav(q_num){
-    $('.q3').remove();
+    $('.q1').remove();
     $('.q4').remove();
+    $('.q5').remove();
     $('.q7').remove();
     $('.p_content__form').removeClass('hidden');
     $('.p_content__nazo_image').removeClass('hidden');
-    if(q_num == 3){
-        $('.p_content__nazo_image').attr("src",`img/question/3-1.png`);
-        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q3" src="img/question/3-2.png">`);
-        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q3" src="img/question/3-3.png">`);
-        //input
-        $('.p_content__input').after(`<input class="c_input--text p_content__input q3" type="text" name="">`)
-        $('.p_content__input').eq(0).after(`<input class="c_input--text p_content__input q3" type="text" name="">`)
+    if(q_num == 1){
+        $('.p_content__nazo_container').prepend(`<p class="p_content__nazo_title q1">Step 1</p>`);
+        $('.p_content__nazo_image').attr("src",`img/question/1-1.png`);
+        $('.p_content__nazo_container').append(`<p class="p_content__nazo_title q1">Step 2</p>`);
+        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q1" src="img/question/1-2.png">`);
+        $('.p_content__nazo_container').append(`<p class="p_content__nazo_title q1">Step 3</p>`);
+        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q1" src="img/question/1-3.png">`);
+        $('.p_content__nazo_container').append(`<p class="p_content__nazo_title q1">Step 4</p>`);
+        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q1" src="img/question/1-4.png">`);
     }else if(q_num == 4){
         $('.p_content__form').addClass('hidden');
-        $('.p_content__nazo_image').addClass('hidden');
+        $('.p_content__nazo_image').attr("src",`img/question/4.png`);
         q4();
+    }else if(q_num == 5){
+        $('.p_content__nazo_image').attr("src",`img/question/5-1.png`);
+        $('.p_content__nazo_container').append(`<input placeholder="ここに答えを入力してください" class="c_input--text p_content__input q5" type="text" name="">`)
+        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q5" src="img/question/5-2.png">`);
+        $('.p_content__nazo_container').append(`<input placeholder="ここに答えを入力してください" class="c_input--text p_content__input q5" type="text" name="">`)
+        $('.p_content__nazo_container').append(`<img class="p_content__nazo_image q5" src="img/question/5-3.png">`);
     }else if(q_num == 7){
         $('.p_content__nazo_image').attr("src",`img/question/7-1.png`);
         $('.p_content__nazo_container').append(`<div class="p_modal--star__open q7"><span class="material-icons">collections</span>星を見る</div>`);
@@ -138,11 +176,7 @@ function nav(q_num){
     $('.p_content__incorrect').addClass('hidden');
 
     if(state.progress >= q_num){
-        if(q_num == 3){
-            $('.p_content__input').eq(0).val("UL");
-            $('.p_content__input').eq(1).val("OOL");
-            $('.p_content__input').eq(2).val("495");
-        }else if(q_num == 4){
+        if(q_num == 4){
             $('.p_content__q4box').addClass("correct");
             $('.p_content__col').eq(4).addClass("selected");
             $('.p_content__col').eq(0).addClass("selected");
@@ -152,8 +186,11 @@ function nav(q_num){
             $('.p_content__col').eq(6).addClass("selected");
             $('.p_content__col').eq(8).addClass("selected");
             $('.p_content__col').eq(16).addClass("selected");
-        }
-        else{
+        }else if(q_num == 5){
+            $('.p_content__input').eq(0).val(q5[0]);
+            $('.p_content__input').eq(1).val(q5[1]);
+            $('.p_content__input').eq(2).val(q5[2]);
+        }else{
             $('.p_content__input').val(ans_list["q" + q_num].answer);
         }
         $('.p_content__info').removeClass("--disabled")
@@ -186,6 +223,7 @@ function q4(){
         }else{
             if(JSON.stringify(que) == JSON.stringify(q4ans)) {
                 correct(4);
+                document.cookie = `progress=${4};`
                 $('.p_content__q4box').addClass("correct");
             }else{
                 $('.p_content__q4box').on('animationend',()=>{
@@ -247,7 +285,6 @@ let start = 0;
 let end = 0;
 let started = false;
 const width = $('.p_modal--title').width();
-console.log(width);
 document.querySelector('.p_modal--title').addEventListener("touchstart",(e)=>{
     e.preventDefault();
     start = e.touches[0].pageX;
