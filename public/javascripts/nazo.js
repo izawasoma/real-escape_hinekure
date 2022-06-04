@@ -1,11 +1,14 @@
 /////////////cookie//////////////
 let cookie_str = document.cookie;
-cookie_str = cookie_str.split(';');
 let cookies = {};
+cookie_str = cookie_str.split(';');
+if(cookie_str != ""){
 cookie_str.forEach(function(c) {
     const val = c.split('=');
     cookies[val[0].trim()] = val[1].trim();
 })
+
+}
 console.log(cookies);
 
 /////////////謎の答えなどの定数定義、および初期値を変数に格納////////////////
