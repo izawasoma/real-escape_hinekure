@@ -1,4 +1,3 @@
-
 /////////////cookie//////////////
 document.cookie = `cookie=yammy;`
 let cookie_str = document.cookie;

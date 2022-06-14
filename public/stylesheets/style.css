@@ -689,15 +689,14 @@ input:placeholder-shown {
 
 .p_header {
   background-color: #00861C;
-  padding: 0 20px 0 0;
 }
 
 .p_header__logo {
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .p_header__logo img {
-  width: 150px;
+  height: 40px;
 }
 
 .p_header__timer {
@@ -931,6 +930,7 @@ input:placeholder-shown {
   left: 0;
   z-index: 10;
   width: 100vw;
+  height: 100vh;
   height: 100dvh;
   -webkit-box-align: center;
       -ms-flex-align: center;
