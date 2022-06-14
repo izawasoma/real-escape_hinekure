@@ -1,3 +1,4 @@
+
 /////////////cookie//////////////
 document.cookie = `cookie=yammy;`
 let cookie_str = document.cookie;
@@ -46,17 +47,16 @@ const ans_list = {
     },
     q4: {
         question: "点滅した順に押せ",
-        info: "担任は『三須 大井』",
+        info: "担任は『三須 大井』<br><br>手を挙げてこの画面をスタッフに見せなさい",
     },
     q5: {
         question: "クラス記号を求めよ",
-        info: `科目記号は『NZ85』<br><br>
-        手を挙げてこの画面をスタッフに見せなさい`,
+        info: "クラス記号は『AL-52H-208』<br><br>手を挙げてこの画面をスタッフに見せなさい"
     },
     q6: {
         answer: "仲間",
         question: "漢字で答えなさい",
-        info: "クラス記号は『AL-52H-208』",
+        info: `科目記号は『NZ85』`,
     },
     q7: {
         answer: "てんさい",
