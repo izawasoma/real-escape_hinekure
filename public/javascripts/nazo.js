@@ -91,7 +91,9 @@ if(state.progress == 7){
 //解答する
 $('#answer_button').on("click",()=>{
     const q_num = $('.p_nav__item.--active').text();
-    check_ans(q_num);
+    if(state.progress < q_num){
+        check_ans(q_num);
+    }
 })
 //ナビおよび問題の切り替え
 $('.p_nav__item').on("click",(e)=>{
