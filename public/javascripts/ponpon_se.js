@@ -46,13 +46,17 @@ $(function(){
     });
 
     $("#stop_button").click(function(){
+        socket.emit('ponpon-se_audio_stop');
+    });
+    
+    socket.on("ponpon-se_audio_stop",function(){
         audioAllStop(audio);
         $(".p_pad-area__btn--active").eq(0).removeClass("p_pad-area__btn--active").addClass("p_pad-area__btn--nomal");
         $(".p_pad-area__icon--active").eq(0).removeClass("p_pad-area__icon--active").addClass("p_pad-area__icon--nomal");
         $(".p_pad-area__title--active").eq(0).removeClass("p_pad-area__title--active").addClass("p_pad-area__title--nomal");
         $(".p_pad-area__play--active").eq(0).removeClass("p_pad-area__play--active").addClass("p_pad-area__play--nomal");
         $(".p_pad-area__time--active").eq(0).removeClass("p_pad-area__time--active").addClass("p_pad-area__time--nomal");
-    });
+    })
 });
 
 function sec_to_time(sec){
