@@ -9,6 +9,9 @@ function socketIO(server) {
         socket.on('ponpon-se_audio_play', (audio_num) => {
             sio.emit('ponpon-se_audio_play', audio_num);
         });
+        socket.on('ponpon-se_audio_stop', () => {
+            sio.emit('ponpon-se_audio_stop');
+        });
         socket.on("disconnect", function() {
             console.log('user disconnected');
         });
